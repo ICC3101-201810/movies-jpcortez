@@ -32,17 +32,27 @@
             this.welcome = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Panel = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.lista = new System.Windows.Forms.ListBox();
             this.button6 = new System.Windows.Forms.Button();
             this.caja = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bEstudios = new System.Windows.Forms.Button();
+            this.bProductores = new System.Windows.Forms.Button();
+            this.bDirectores = new System.Windows.Forms.Button();
+            this.bActores = new System.Windows.Forms.Button();
+            this.bPelis = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelFechaAp = new System.Windows.Forms.Label();
+            this.labelDireccionEstudio = new System.Windows.Forms.Label();
+            this.labelNombreEstudio = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.listaq = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.welcome.SuspendLayout();
-            this.Panel.SuspendLayout();
+            this.panel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // welcome
@@ -68,28 +78,38 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Panel
+            // panel
             // 
-            this.Panel.Controls.Add(this.lista);
-            this.Panel.Controls.Add(this.button6);
-            this.Panel.Controls.Add(this.caja);
-            this.Panel.Controls.Add(this.button5);
-            this.Panel.Controls.Add(this.button4);
-            this.Panel.Controls.Add(this.button3);
-            this.Panel.Controls.Add(this.button2);
-            this.Panel.Controls.Add(this.button1);
-            this.Panel.Location = new System.Drawing.Point(221, 0);
-            this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(435, 208);
-            this.Panel.TabIndex = 1;
-            this.Panel.Visible = false;
+            this.panel.Controls.Add(this.label2);
+            this.panel.Controls.Add(this.lista);
+            this.panel.Controls.Add(this.button6);
+            this.panel.Controls.Add(this.caja);
+            this.panel.Controls.Add(this.bEstudios);
+            this.panel.Controls.Add(this.bProductores);
+            this.panel.Controls.Add(this.bDirectores);
+            this.panel.Controls.Add(this.bActores);
+            this.panel.Controls.Add(this.bPelis);
+            this.panel.Location = new System.Drawing.Point(252, 221);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(435, 198);
+            this.panel.TabIndex = 1;
+            this.panel.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 8;
             // 
             // lista
             // 
             this.lista.FormattingEnabled = true;
-            this.lista.Location = new System.Drawing.Point(19, 96);
+            this.lista.Location = new System.Drawing.Point(19, 86);
             this.lista.Name = "lista";
             this.lista.Size = new System.Drawing.Size(399, 95);
+            this.lista.Sorted = true;
             this.lista.TabIndex = 7;
             this.lista.SelectedIndexChanged += new System.EventHandler(this.lista_SelectedIndexChanged);
             // 
@@ -105,6 +125,7 @@
             // 
             // caja
             // 
+            this.caja.AcceptsReturn = true;
             this.caja.AutoCompleteCustomSource.AddRange(new string[] {
             "🔎 Search..."});
             this.caja.ForeColor = System.Drawing.SystemColors.ScrollBar;
@@ -112,54 +133,135 @@
             this.caja.Name = "caja";
             this.caja.Size = new System.Drawing.Size(318, 20);
             this.caja.TabIndex = 5;
-            this.caja.Text = "🔎Search...";
+            this.caja.Text = "🔎 Search...";
             this.caja.Click += new System.EventHandler(this.caja_TextChanged);
             this.caja.TextChanged += new System.EventHandler(this.caja_TextChanged);
             // 
-            // button5
+            // bEstudios
             // 
-            this.button5.Location = new System.Drawing.Point(343, 57);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Estudios";
-            this.button5.UseVisualStyleBackColor = true;
+            this.bEstudios.Location = new System.Drawing.Point(343, 57);
+            this.bEstudios.Name = "bEstudios";
+            this.bEstudios.Size = new System.Drawing.Size(75, 23);
+            this.bEstudios.TabIndex = 4;
+            this.bEstudios.Text = "Estudios";
+            this.bEstudios.UseVisualStyleBackColor = true;
+            this.bEstudios.Click += new System.EventHandler(this.bEstudios_Click);
             // 
-            // button4
+            // bProductores
             // 
-            this.button4.Location = new System.Drawing.Point(262, 57);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Productores";
-            this.button4.UseVisualStyleBackColor = true;
+            this.bProductores.Location = new System.Drawing.Point(262, 57);
+            this.bProductores.Name = "bProductores";
+            this.bProductores.Size = new System.Drawing.Size(75, 23);
+            this.bProductores.TabIndex = 3;
+            this.bProductores.Text = "Productores";
+            this.bProductores.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // bDirectores
             // 
-            this.button3.Location = new System.Drawing.Point(181, 57);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Directores";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bDirectores.Location = new System.Drawing.Point(181, 57);
+            this.bDirectores.Name = "bDirectores";
+            this.bDirectores.Size = new System.Drawing.Size(75, 23);
+            this.bDirectores.TabIndex = 2;
+            this.bDirectores.Text = "Directores";
+            this.bDirectores.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // bActores
             // 
-            this.button2.Location = new System.Drawing.Point(100, 57);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Actores";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bActores.Location = new System.Drawing.Point(100, 57);
+            this.bActores.Name = "bActores";
+            this.bActores.Size = new System.Drawing.Size(75, 23);
+            this.bActores.TabIndex = 1;
+            this.bActores.Text = "Actores";
+            this.bActores.UseVisualStyleBackColor = true;
+            this.bActores.Click += new System.EventHandler(this.bActores_Click);
+            // 
+            // bPelis
+            // 
+            this.bPelis.Location = new System.Drawing.Point(19, 57);
+            this.bPelis.Name = "bPelis";
+            this.bPelis.Size = new System.Drawing.Size(75, 23);
+            this.bPelis.TabIndex = 0;
+            this.bPelis.Text = "Peliculas";
+            this.bPelis.UseVisualStyleBackColor = true;
+            this.bPelis.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.labelFechaAp);
+            this.panel1.Controls.Add(this.labelDireccionEstudio);
+            this.panel1.Controls.Add(this.labelNombreEstudio);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.listaq);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(435, 198);
+            this.panel1.TabIndex = 2;
+            this.panel1.Visible = false;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // labelFechaAp
+            // 
+            this.labelFechaAp.AutoSize = true;
+            this.labelFechaAp.Location = new System.Drawing.Point(16, 146);
+            this.labelFechaAp.Name = "labelFechaAp";
+            this.labelFechaAp.Size = new System.Drawing.Size(0, 13);
+            this.labelFechaAp.TabIndex = 11;
+            // 
+            // labelDireccionEstudio
+            // 
+            this.labelDireccionEstudio.AutoSize = true;
+            this.labelDireccionEstudio.Location = new System.Drawing.Point(16, 133);
+            this.labelDireccionEstudio.Name = "labelDireccionEstudio";
+            this.labelDireccionEstudio.Size = new System.Drawing.Size(0, 13);
+            this.labelDireccionEstudio.TabIndex = 10;
+            // 
+            // labelNombreEstudio
+            // 
+            this.labelNombreEstudio.AutoSize = true;
+            this.labelNombreEstudio.Location = new System.Drawing.Point(16, 120);
+            this.labelNombreEstudio.Name = "labelNombreEstudio";
+            this.labelNombreEstudio.Size = new System.Drawing.Size(0, 13);
+            this.labelNombreEstudio.TabIndex = 9;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(19, 57);
+            this.button1.Location = new System.Drawing.Point(336, 120);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Peliculas";
+            this.button1.Size = new System.Drawing.Size(75, 61);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Volver";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // listaq
+            // 
+            this.listaq.FormattingEnabled = true;
+            this.listaq.Location = new System.Drawing.Point(12, 19);
+            this.listaq.Name = "listaq";
+            this.listaq.Size = new System.Drawing.Size(399, 95);
+            this.listaq.Sorted = true;
+            this.listaq.TabIndex = 7;
+            this.listaq.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "label3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(165, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "label4";
             // 
             // Form1
             // 
@@ -167,16 +269,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1010, 485);
-            this.Controls.Add(this.Panel);
+            this.ClientSize = new System.Drawing.Size(689, 610);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.welcome);
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.welcome.ResumeLayout(false);
             this.welcome.PerformLayout();
-            this.Panel.ResumeLayout(false);
-            this.Panel.PerformLayout();
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -186,15 +290,24 @@
         private System.Windows.Forms.Panel welcome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel Panel;
+        private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.TextBox caja;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bEstudios;
+        private System.Windows.Forms.Button bProductores;
+        private System.Windows.Forms.Button bDirectores;
+        private System.Windows.Forms.Button bActores;
+        private System.Windows.Forms.Button bPelis;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ListBox lista;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox listaq;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelNombreEstudio;
+        private System.Windows.Forms.Label labelDireccionEstudio;
+        private System.Windows.Forms.Label labelFechaAp;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

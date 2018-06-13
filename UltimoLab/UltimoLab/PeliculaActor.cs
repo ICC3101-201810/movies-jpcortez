@@ -11,5 +11,11 @@ namespace UltimoLab
     {
         public Pelicula pelicula;
         public Actor actor;
+
+        public PeliculaActor(Pelicula pelicula, Actor actor)
+        {
+            this.pelicula = pelicula;
+            this.actor = actor;
+        }
     }
 }

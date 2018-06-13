@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace UltimoLab
 {
-    public class Actor : Persona
+    [Serializable]
+    public class Actor 
     {
-        public string cargo;
+        public string nombre, apellido, fechaN, bio, cargo;
 
-        public Actor(string nombre, string apellido, string fechaN, string bio, string cargo) : base(nombre, apellido, fechaN, bio)
+        public Actor(string nombre, string apellido, string fechaN, string bio)
         {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.fechaN = fechaN;
+            this.bio = bio;
             this.cargo = "actor";
         }
     }

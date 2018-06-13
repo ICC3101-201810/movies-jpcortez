@@ -43,13 +43,14 @@
             this.bActores = new System.Windows.Forms.Button();
             this.bPelis = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.labelFechaAp = new System.Windows.Forms.Label();
             this.labelDireccionEstudio = new System.Windows.Forms.Label();
             this.labelNombreEstudio = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.listaq = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.welcome.SuspendLayout();
             this.panel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -155,6 +156,7 @@
             this.bProductores.TabIndex = 3;
             this.bProductores.Text = "Productores";
             this.bProductores.UseVisualStyleBackColor = true;
+            this.bProductores.Click += new System.EventHandler(this.bProductores_Click);
             // 
             // bDirectores
             // 
@@ -164,6 +166,7 @@
             this.bDirectores.TabIndex = 2;
             this.bDirectores.Text = "Directores";
             this.bDirectores.UseVisualStyleBackColor = true;
+            this.bDirectores.Click += new System.EventHandler(this.bDirectores_Click);
             // 
             // bActores
             // 
@@ -187,6 +190,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.labelFechaAp);
@@ -200,6 +204,24 @@
             this.panel1.TabIndex = 2;
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(192, 133);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "           ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "      ";
             // 
             // labelFechaAp
             // 
@@ -245,23 +267,15 @@
             this.listaq.TabIndex = 7;
             this.listaq.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 159);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "label3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(165, 144);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "label4";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(192, 159);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "           ";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Form1
             // 
@@ -308,6 +322,7 @@
         private System.Windows.Forms.Label labelFechaAp;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

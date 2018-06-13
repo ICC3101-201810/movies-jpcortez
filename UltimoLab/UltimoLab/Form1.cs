@@ -15,24 +15,24 @@ namespace UltimoLab
 {
     public partial class Form1 : Form
     {
-        Estudio estudio = new Estudio("hola", "sada", "sada");
-        Director d = new Director("ell", "director", "sd", "hola men");
-        Actor a = new Actor("the", "actor", "sdf", ":3");
-        Productor p = new Productor("musicologo", "xd", "lwek", "kjkhjk");
+        //Estudio estudio = new Estudio("hola", "sada", "sada");
+        //Director d = new Director("ell", "director", "sd", "hola men");
+        //Actor a = new Actor("the", "actor", "sdf", ":3");
+        //Productor p = new Productor("musicologo", "xd", "lwek", "kjkhjk");
         BaseDeDatos bdd = new BaseDeDatos();
 
         public Form1()
         {
-            Pelicula peli = new Pelicula("SAD", "ayer", "olakase", d, 10);
-            PeliculaActor pa = new PeliculaActor(peli, a);
-            PeliculaProductor pp = new PeliculaProductor(peli, p);
-            bdd.estudio.Add(estudio);
-            bdd.actores.Add(a);
-            bdd.directores.Add(d);
-            bdd.productores.Add(p);
-            bdd.pelicula.Add(peli);
-            bdd.peliact.Add(pa);
-            bdd.peliprod.Add(pp);
+            //Pelicula peli = new Pelicula("SAD", "ayer", "olakase", d, 10);
+            //PeliculaActor pa = new PeliculaActor(peli, a);
+            //PeliculaProductor pp = new PeliculaProductor(peli, p);
+            //bdd.estudio.Add(estudio);
+            //bdd.actores.Add(a);
+            //bdd.directores.Add(d);
+            //bdd.productores.Add(p);
+            //bdd.pelicula.Add(peli);
+            //bdd.peliact.Add(pa);
+            //bdd.peliprod.Add(pp);
 
             try
             {
@@ -80,8 +80,8 @@ namespace UltimoLab
             {
                 label2.Text = " ";
                 IEnumerable<Object> lest = from obj in bdd.estudio
-                                               where obj.nombre.ToLower().Contains(caja.Text.ToLower())
-                                               select obj;
+                                           where obj.nombre.ToLower().Contains(caja.Text.ToLower())
+                                           select obj;
                 IEnumerable<Object> lpel = from obj in bdd.pelicula
                                            where obj.nombre.ToLower().Contains(caja.Text.ToLower())
                                            select obj;
@@ -89,8 +89,8 @@ namespace UltimoLab
                                            where obj.nombre.ToLower().Contains(caja.Text.ToLower())
                                            select obj;
                 IEnumerable<Object> lprod = from obj in bdd.productores
-                                           where obj.nombre.ToLower().Contains(caja.Text.ToLower())
-                                           select obj;
+                                            where obj.nombre.ToLower().Contains(caja.Text.ToLower())
+                                            select obj;
                 IEnumerable<Object> ldir = from obj in bdd.directores
                                            where obj.nombre.ToLower().Contains(caja.Text.ToLower())
                                            select obj;
@@ -149,6 +149,7 @@ namespace UltimoLab
             vacio.Clear();
             listaq.DataSource = vacio;
             listaq.Refresh();
+            label5.Text = "";
             panel1.Hide();
             panel.Show();
         }
@@ -179,11 +180,58 @@ namespace UltimoLab
             panel.Hide();
             panel1.Show();
             listaq.DataSource = bdd.NombresActores();
-            //labelNombreEstudio.Text = "Nombre: " + listaq.SelectedItem.ToString();
-            //labelDireccionEstudio.Text = "Director: " + bdd.GetPeli(listaq.SelectedItem.ToString()).director.nombre + bdd.GetPeli(listaq.SelectedItem.ToString()).director.apellido;
+            labelNombreEstudio.Text = "Nombre: " + listaq.SelectedItem.ToString();
+            labelDireccionEstudio.Text = "Fecha nacimiento: " + bdd.GetActor(listaq.SelectedItem.ToString().Split(' ')[0], listaq.SelectedItem.ToString().Split(' ')[1]).fechaN;
             //labelFechaAp.Text = "Fecha estreno: " + bdd.GetPeli(listaq.SelectedItem.ToString()).fechaEstreno;
             //label3.Text = "Presupuesto: " + bdd.GetPeli(listaq.SelectedItem.ToString()).presupuesto.ToString();
-            //label4.Text = "Descripción: " + bdd.GetPeli(listaq.SelectedItem.ToString()).descripcion;
+            label4.Text = "Biografía: " + bdd.GetActor(listaq.SelectedItem.ToString().Split(' ')[0], listaq.SelectedItem.ToString().Split(' ')[1]).bio;
+            string qq = "Ha participado en: \n";
+            foreach (PeliculaActor pa in bdd.peliact)
+            {
+                if (pa.actor == bdd.GetActor(listaq.SelectedItem.ToString().Split(' ')[0], listaq.SelectedItem.ToString().Split(' ')[1]))
+                {
+                    qq += pa.pelicula.nombre+"\n";
+                }
+            }
+            label5.Text = qq;
+        }
+
+        private void bDirectores_Click(object sender, EventArgs e)
+        {
+            panel.Hide();
+            panel1.Show();
+            listaq.DataSource = bdd.NombresDir();
+            labelNombreEstudio.Text = "Nombre: " + listaq.SelectedItem.ToString();
+            labelDireccionEstudio.Text = "Fecha nacimiento: " + bdd.GetDirector(listaq.SelectedItem.ToString().Split(' ')[0], listaq.SelectedItem.ToString().Split(' ')[1]).fechaN;
+            //labelFechaAp.Text = "Fecha estreno: " + bdd.GetPeli(listaq.SelectedItem.ToString()).fechaEstreno;
+            //label3.Text = "Presupuesto: " + bdd.GetPeli(listaq.SelectedItem.ToString()).presupuesto.ToString();
+            label4.Text = "Biografía: " + bdd.GetDirector(listaq.SelectedItem.ToString().Split(' ')[0], listaq.SelectedItem.ToString().Split(' ')[1]).bio;
+        }
+
+        private void bProductores_Click(object sender, EventArgs e)
+        {
+            panel.Hide();
+            panel1.Show();
+            listaq.DataSource = bdd.NombresProd();
+            labelNombreEstudio.Text = "Nombre: " + listaq.SelectedItem.ToString();
+            labelDireccionEstudio.Text = "Fecha nacimiento: " + bdd.GetProductor(listaq.SelectedItem.ToString().Split(' ')[0], listaq.SelectedItem.ToString().Split(' ')[1]).fechaN;
+            //labelFechaAp.Text = "Fecha estreno: " + bdd.GetPeli(listaq.SelectedItem.ToString()).fechaEstreno;
+            //label3.Text = "Presupuesto: " + bdd.GetPeli(listaq.SelectedItem.ToString()).presupuesto.ToString();
+            label4.Text = "Biografía: " + bdd.GetProductor(listaq.SelectedItem.ToString().Split(' ')[0], listaq.SelectedItem.ToString().Split(' ')[1]).bio;
+            string qq = "Ha participado en: \n";
+            foreach (PeliculaProductor pa in bdd.peliprod)
+            {
+                if (pa.productor == bdd.GetProductor(listaq.SelectedItem.ToString().Split(' ')[0], listaq.SelectedItem.ToString().Split(' ')[1]))
+                {
+                    qq += pa.pelicula.nombre + "\n";
+                }
+            }
+            label5.Text = qq;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

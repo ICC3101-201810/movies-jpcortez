@@ -75,7 +75,7 @@ namespace UltimoLab
             List<string> a = new List<string>();
             foreach (Director p in directores)
             {
-                a.Add(p.nombre);
+                a.Add(p.nombre + " " + p.apellido);
             }
             return a;
         }
@@ -84,7 +84,7 @@ namespace UltimoLab
             List<string> a = new List<string>();
             foreach (Productor p in productores)
             {
-                a.Add(p.nombre);
+                a.Add(p.nombre + " "+ p.apellido);
             }
             return a;
         }
@@ -116,6 +116,28 @@ namespace UltimoLab
         public Actor GetActor(string s, string p)
         {
             foreach (Actor a in actores)
+            {
+                if (a.nombre.ToLower() == s.ToLower() && a.apellido.ToLower() == p.ToLower())
+                {
+                    return a;
+                }
+            }
+            return null;
+        }
+        public Director GetDirector(string s, string p)
+        {
+            foreach (Director a in directores)
+            {
+                if (a.nombre.ToLower() == s.ToLower() && a.apellido.ToLower() == p.ToLower())
+                {
+                    return a;
+                }
+            }
+            return null;
+        }
+        public Productor GetProductor(string s, string p)
+        {
+            foreach (Productor a in productores)
             {
                 if (a.nombre.ToLower() == s.ToLower() && a.apellido.ToLower() == p.ToLower())
                 {
